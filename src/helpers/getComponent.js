@@ -44,6 +44,53 @@ class P extends React.Component {
   }
 }
 
+class EM extends React.Component {
+  render() {
+    return <em>{ this.props.children }</em>;
+  }
+}
+
+class STRONG extends React.Component {
+  render() {
+    return <strong>{ this.props.children }</strong>;
+  }
+}
+
+class DEL extends React.Component {
+  render() {
+    return <del>{ this.props.children }</del>;
+  }
+}
+
+class LIST extends React.Component {
+  render() {
+    return (
+      <ul>
+        { this.props.children.map((child, i) => {
+          return <li>{ child }</li>;
+        }) }
+      </ul>);
+  }
+}
+
+class A extends React.Component {
+  render() {
+    return <a href={ this.props.href } title={ this.props.title }>{ this.props.children }</a>;
+  }
+}
+
+class IMG extends React.Component {
+  render() {
+    return <img src={ this.props.src } alt={ this.props.alt }>{ this.props.children }</img>;
+  }
+}
+
+class BLOCKQUOTE extends React.Component {
+  render() {
+    return <blockquote>{ this.props.children }</blockquote>;
+  }
+}
+
 class HR extends React.Component {
   render() {
     return <hr />;
