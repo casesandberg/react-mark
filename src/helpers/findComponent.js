@@ -62,6 +62,18 @@ class DEL extends React.Component {
   }
 }
 
+class UL extends React.Component {
+  render() {
+    return <ul>{ this.props.children }</ul>;
+  }
+}
+
+class LI extends React.Component {
+  render() {
+    return <li>{ this.props.children }</li>;
+  }
+}
+
 class LIST extends React.Component {
   render() {
     return (
@@ -81,7 +93,7 @@ class A extends React.Component {
 
 class IMG extends React.Component {
   render() {
-    return <img src={ this.props.src } alt={ this.props.alt }>{ this.props.children }</img>;
+    return <img src={ this.props.href } alt={ this.props.alt }>{ this.props.children }</img>;
   }
 }
 
@@ -97,31 +109,42 @@ class HR extends React.Component {
   }
 }
 
-export const getComponent = (type, args) => {
-  if (type === 'header') {
+export const findComponent = (name, args, children) => {
+  let el;
+  if (name === 'header') {
     if (eval('H' + args.level)) {
-      return eval('H' + args.level);
+      el = eval('H' + args.level);
     }
+  } else if (name === 'para') {
+    el = P;
+  } else if (name === 'em') {
+    el = EM;
+  } else if (name === 'strong') {
+    el = STRONG;
+  } else if (name === 'hr') {
+    el = HR;
+  } else if (name === 'numberlist') {
+    el = UL;
+  } else if (name === 'bulletlist') {
+    el = UL;
+  } else if (name === 'listitem') {
+    el = LI;
+  } else if (name === 'link') {
+    el = A;
+  } else if (name === 'img') {
+    el = IMG;
+  } else if (name === 'blockquote') {
+    el = BLOCKQUOTE;
+  } else {
+    name !== 'markdown' && console.log('COMPONENT DOESNT EXIST', name);
+    el = class Foo extends React.Component {
+      render() {
+        return <div>{ this.props.children }</div>;
+      }
+    };
   }
 
-  if (type === 'para') {
-
-    // if (args[0] === 'em') {
-    //
-    // }
-    return P;
-  }
-
-  if (type === 'hr') {
-    return HR;
-  }
-
-  console.log('COMPONENT DOESNT EXIST', type);
-  return class Foo extends React.Component {
-    render() {
-      return <div>{ this.props.children }</div>;
-    }
-  };
+  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random() }), children);
 };
 
-export default getComponent;
+export default findComponent;

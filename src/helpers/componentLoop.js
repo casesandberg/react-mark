@@ -1,38 +1,31 @@
 'use strict';
 
+import React from 'react';
 import _ from 'underscore';
+import findComponent from './findComponent';
 
 export const componentLoop = (elements) => {
-  const toReturn = [];
-  let elementName;
-  let elementArgs;
+  const children = [];
+  let name;
+  let args = {};
   elements.map((element, i) => {
     if (i === 0) {
-      elementName = element;
-
+      name = element;
     } else {
       if (_.isObject(element) && !_.isArray(element)) {
-        elementArgs = element;
+        args = element;
       } else {
 
-        if (!toReturn.length) {
-          toReturn.push('<' + elementName + '>');
-        }
-
         if (_.isArray(element)) {
-          toReturn.push(componentLoop(element));
+          children.push(componentLoop(element));
         } else {
-          toReturn.push(element);
-        }
-
-        if (i === elements.length - 1) {
-          toReturn.push('</' + elementName + '>');
+          children.push(element);
         }
       }
     }
   });
 
-  return toReturn;
+  return findComponent(name, args, children);
 };
 
 export default componentLoop;
