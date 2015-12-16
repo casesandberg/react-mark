@@ -21,16 +21,18 @@ export class Page extends React.Component {
           display: 'flex',
           alignItems: 'stretch',
           Absolute: '0 0 0 0',
-          background: '#F5F6F3',
+          background: '#fafafa',
         },
         left: {
           flex: 1,
           position: 'relative',
-          borderRight: '1px solid rgba(0,0,0,.15)',
+          padding: '20px',
         },
         right: {
           flex: 1,
           padding: '20px',
+          background: '#fff',
+          boxShadow: '0 0 16px rgba(0,0,0,.14), 0 0 2px rgba(0,0,0,.14)',
         },
         textarea: {
           Absolute: '20px 6% 20px 6%',
