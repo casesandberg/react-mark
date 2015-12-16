@@ -5,11 +5,13 @@ import ReactCSS from 'reactcss';
 
 import Markdown from '../../src/components/Mark';
 
+import documentation from '../documentation/index';
+
 export class Page extends React.Component {
   constructor() {
     super();
     this.state = {
-      copy: '# Hello',
+      copy: documentation,
     };
     this.handleChange = this.handleChange.bind(this);
   }
