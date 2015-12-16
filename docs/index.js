@@ -3,7 +3,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Page from './components/Page';
+
 ReactDOM.render(
-  React.createElement('div', {}, 'react-mark'),
+  React.createElement(Page),
   document.getElementById('root')
 );

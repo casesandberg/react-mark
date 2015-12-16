@@ -9,6 +9,17 @@
   "author": "",
   "license": "MIT",
   "jspm": {
+    "dependencies": {
+      "casesandberg/reactcss": "github:casesandberg/reactcss@1.0.0",
+      "classnames": "npm:classnames@^2.2.1",
+      "lodash": "npm:lodash@^3.10.1",
+      "markdown": "npm:markdown@^0.5.0",
+      "merge": "npm:merge@^1.2.0",
+      "react": "npm:react@^0.14.3",
+      "react-dom": "npm:react-dom@^0.14.3",
+      "reactcss": "github:casesandberg/reactcss@1.0.0",
+      "underscore": "npm:underscore@^1.8.3"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
