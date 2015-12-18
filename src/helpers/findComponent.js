@@ -93,7 +93,7 @@ class A extends React.Component {
 
 class IMG extends React.Component {
   render() {
-    return <img src={ this.props.href } alt={ this.props.alt }>{ this.props.children }</img>;
+    return <img src={ this.props.href } alt={ this.props.alt } />;
   }
 }
 
