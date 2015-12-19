@@ -9,8 +9,12 @@ export class Mark extends React.Component {
     var input = (this.props.text || this.props.children || []).replace('\`', '`');
     console.log(input);
     var elements = markdown.parse(input);
-    return componentLoop(elements);
+    return componentLoop(elements, this.props.replace);
   }
+};
+
+Mark.defaultProps = {
+  replace: {},
 };
 
 export default Mark;

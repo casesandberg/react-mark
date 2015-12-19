@@ -121,9 +121,15 @@ class CODEBLOCK extends React.Component {
   }
 }
 
-export const findComponent = (name, args, children) => {
+export const findComponent = (name, args, children, replace) => {
   let el;
-  if (name === 'header') {
+  let possible = {
+    'code_block': replace.codeblock,
+  }[name];
+
+  if (possible) {
+    el = possible;
+  } else if (name === 'header') {
     if (eval('H' + args.level)) {
       el = eval('H' + args.level);
     }

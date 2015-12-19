@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactCSS from 'reactcss';
 
+import Code from './Code';
 import Markdown from '../../src/components/Mark';
 
 import documentation from '../documentation/index';
@@ -62,7 +63,7 @@ export class Page extends React.Component {
           <textarea is="textarea" value={ this.state.copy } onChange={ this.handleChange } />
         </div>
         <div is="right">
-          <Markdown text={ this.state.copy } />
+          <Markdown text={ this.state.copy } replace={{ codeblock: Code }} />
         </div>
       </div>
     );
