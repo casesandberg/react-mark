@@ -23,7 +23,7 @@ export class Page extends React.Component {
           display: 'flex',
           alignItems: 'stretch',
           Absolute: '0 0 0 0',
-          background: '#fafafa',
+          background: '#f3f5f6',
         },
         left: {
           flex: 1,
