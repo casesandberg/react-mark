@@ -28,13 +28,14 @@ export class Page extends React.Component {
         left: {
           flex: 1,
           position: 'relative',
-          padding: '20px',
+          padding: '40px',
         },
         right: {
           flex: 1,
-          padding: '20px',
+          padding: '40px',
           background: '#fff',
           boxShadow: '0 0 16px rgba(0,0,0,.14), 0 0 2px rgba(0,0,0,.14)',
+          overflowY: 'scroll',
         },
         textarea: {
           Absolute: '20px 6% 20px 6%',
@@ -43,6 +44,8 @@ export class Page extends React.Component {
           padding: '0',
           outline: 'none',
           background: 'transparent',
+          fontSize: '16px',
+          lineHeight: '24px',
         },
       },
     };

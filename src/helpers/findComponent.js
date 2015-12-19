@@ -109,6 +109,18 @@ class HR extends React.Component {
   }
 }
 
+class INLINECODE extends React.Component {
+  render() {
+    return <code>{ this.props.children }</code>;
+  }
+}
+
+class CODEBLOCK extends React.Component {
+  render() {
+    return <pre><code>{ this.props.children }</code></pre>;
+  }
+}
+
 export const findComponent = (name, args, children) => {
   let el;
   if (name === 'header') {
@@ -135,6 +147,12 @@ export const findComponent = (name, args, children) => {
     el = IMG;
   } else if (name === 'blockquote') {
     el = BLOCKQUOTE;
+  } else if (name === 'inlinecode') {
+    el = INLINECODE;
+  } else if (name === 'code_block') {
+    el = CODEBLOCK;
+
+  // } else if (name === 'link_ref') {
   } else {
     name !== 'markdown' && console.log('COMPONENT DOESNT EXIST', name);
     el = class Foo extends React.Component {
