@@ -63,7 +63,7 @@ export class Page extends React.Component {
           <textarea is="textarea" value={ this.state.copy } onChange={ this.handleChange } />
         </div>
         <div is="right">
-          <Markdown text={ this.state.copy } replace={{ codeblock: Code }} />
+          <Markdown text={ this.state.copy } replace={{ pre: Code }} />
         </div>
       </div>
     );

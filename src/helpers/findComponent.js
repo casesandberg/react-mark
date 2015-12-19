@@ -2,39 +2,9 @@
 
 import React from 'react';
 
-class H1 extends React.Component {
+class H extends React.Component {
   render() {
-    return <h1>{ this.props.children }</h1>;
-  }
-}
-
-class H2 extends React.Component {
-  render() {
-    return <h2>{ this.props.children }</h2>;
-  }
-}
-
-class H3 extends React.Component {
-  render() {
-    return <h3>{ this.props.children }</h3>;
-  }
-}
-
-class H4 extends React.Component {
-  render() {
-    return <h4>{ this.props.children }</h4>;
-  }
-}
-
-class H5 extends React.Component {
-  render() {
-    return <h5>{ this.props.children }</h5>;
-  }
-}
-
-class H6 extends React.Component {
-  render() {
-    return <h6>{ this.props.children }</h6>;
+    return React.createElement('h' + this.props.level, {}, this.props.children);
   }
 }
 
@@ -121,52 +91,59 @@ class CODEBLOCK extends React.Component {
   }
 }
 
+class SPAN extends React.Component {
+  render() {
+    return <span>{ this.props.children }</span>;
+  }
+}
+
+class MARKDOWN extends React.Component {
+  render() {
+    return <div>{ this.props.children }</div>;
+  }
+}
+
 export const findComponent = (name, args, children, replace) => {
-  let el;
   let possible = {
-    'code_block': replace.codeblock,
+    'header': replace.header,
+    'para': replace.p,
+    'em': replace.em,
+    'strong': replace.strong,
+    'hr': replace.hr,
+    'numberlist': replace.ul,
+    'bulletlist': replace.ol,
+    'listitem': replace.li,
+    'link': replace.a,
+    'img': replace.img,
+    'blockquote': replace.blockquote,
+    'inlinecode': replace.code,
+    'code_block': replace.pre,
+    'link_ref': null,
   }[name];
 
-  if (possible) {
-    el = possible;
-  } else if (name === 'header') {
-    if (eval('H' + args.level)) {
-      el = eval('H' + args.level);
-    }
-  } else if (name === 'para') {
-    el = P;
-  } else if (name === 'em') {
-    el = EM;
-  } else if (name === 'strong') {
-    el = STRONG;
-  } else if (name === 'hr') {
-    el = HR;
-  } else if (name === 'numberlist') {
-    el = UL;
-  } else if (name === 'bulletlist') {
-    el = UL;
-  } else if (name === 'listitem') {
-    el = LI;
-  } else if (name === 'link') {
-    el = A;
-  } else if (name === 'img') {
-    el = IMG;
-  } else if (name === 'blockquote') {
-    el = BLOCKQUOTE;
-  } else if (name === 'inlinecode') {
-    el = INLINECODE;
-  } else if (name === 'code_block') {
-    el = CODEBLOCK;
+  let basic = {
+    'header': H,
+    'para': P,
+    'em': EM,
+    'strong': STRONG,
+    'hr': HR,
+    'numberlist': UL,
+    'bulletlist': UL,
+    'listitem': LI,
+    'link': A,
+    'img': IMG,
+    'blockquote': BLOCKQUOTE,
+    'inlinecode': INLINECODE,
+    'code_block': CODEBLOCK,
+    'link_ref': null,
+    'markdown': MARKDOWN,
+  }[name];
 
-  // } else if (name === 'link_ref') {
-  } else {
-    name !== 'markdown' && console.log('COMPONENT DOESNT EXIST', name);
-    el = class Foo extends React.Component {
-      render() {
-        return <div>{ this.props.children }</div>;
-      }
-    };
+  if (!possible && !basic) {
+    console.log('COMPONENT DOESNT EXIST', name);
   }
+
+  const el = possible || basic || SPAN;
 
   return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random() }), children);
 };
