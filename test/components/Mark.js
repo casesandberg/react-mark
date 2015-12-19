@@ -101,4 +101,18 @@ describe('Mark', () => {
     const hr3 = ReactDOMServer.renderToStaticMarkup(<Mark text="___" />);
     expect(hr3).to.eql('<div><hr/></div>');
   });
+
+  it('should parse inline code and code blocks', () => {
+    const inlineCode = ReactDOMServer.renderToStaticMarkup(<Mark text="`foo bar`" />);
+    expect(inlineCode).to.eql('<div><p><code>foo bar</code></p></div>');
+
+    const codeBlock1 = ReactDOMServer.renderToStaticMarkup(<Mark text={'    npm install react-mark'} />);
+    expect(codeBlock1).to.eql('<div><pre><code>npm install react-mark</code></pre></div>');
+
+    const codeBlock2 = ReactDOMServer.renderToStaticMarkup(<Mark text={'```\nnpm install react-mark\n```' } />);
+    expect(codeBlock2).to.eql('<div><pre><code>npm install react-mark</code></pre></div>');
+
+    const codeBlock3 = ReactDOMServer.renderToStaticMarkup(<Mark text={'```\nimport React from \'react\';\nimport ReactCSS from \'reactcss\';\n```' } />);
+    expect(codeBlock3).to.eql('<div><pre><code>import React from &#x27;react&#x27;;\nimport ReactCSS from &#x27;reactcss&#x27;;</code></pre></div>');
+  });
 });

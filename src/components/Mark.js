@@ -3,11 +3,13 @@
 import React from 'react';
 import { markdown } from 'markdown';
 import componentLoop from '../helpers/componentLoop';
+import transformCodeBlocks from '../helpers/transformCodeBlocks';
 
 export class Mark extends React.Component {
   render() {
-    var input = (this.props.text || this.props.children || []).replace('\`', '`');
-    var elements = markdown.parse(input);
+    let input = this.props.text || this.props.children || [];
+    let blocked = transformCodeBlocks(input);
+    let elements = markdown.parse(blocked);
     return componentLoop(elements, this.props.replace);
   }
 };
