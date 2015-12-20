@@ -1,6 +1,7 @@
 'use strict';
 
 export default `
+
 ![React Mark](http://www.nigelsmith.co/images/reactjs.png =50x)
 
 # marked
@@ -379,4 +380,5 @@ See LICENSE for more info.
 [badge]: http://badge.fury.io/js/marked
 [tables]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables
 [breaks]: https://help.github.com/articles/github-flavored-markdown#newlines
+
 `;

@@ -24,7 +24,6 @@ export class Page extends React.Component {
           display: 'flex',
           alignItems: 'stretch',
           Absolute: '0 0 0 0',
-          background: '#f3f5f6',
         },
         left: {
           flex: 1,
@@ -39,7 +38,7 @@ export class Page extends React.Component {
           overflowY: 'scroll',
         },
         textarea: {
-          Absolute: '20px 6% 20px 6%',
+          Absolute: '0 6% 0 6%',
           width: '88%',
           border: 'none',
           padding: '0',
@@ -47,6 +46,7 @@ export class Page extends React.Component {
           background: 'transparent',
           fontSize: '16px',
           lineHeight: '24px',
+          margin: '0',
         },
       },
     };
@@ -60,7 +60,7 @@ export class Page extends React.Component {
     return (
       <div is="page">
         <div is="left">
-          <textarea is="textarea" value={ this.state.copy } onChange={ this.handleChange } />
+          <textarea is="textarea" className="markdown-text" value={ this.state.copy } onChange={ this.handleChange } />
         </div>
         <div is="right">
           <Markdown text={ this.state.copy } replace={{ pre: Code }} />
