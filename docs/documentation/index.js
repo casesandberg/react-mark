@@ -90,8 +90,6 @@ A function to highlight code blocks. The first example below uses async highligh
 
     var marked = require('marked');
 
-    var markdownString = '\`\`\`js\n console.log("hello"); \n\`\`\`';
-
     // Async highlighting with pygmentize-bundled
     marked.setOptions({
       highlight: function (code, lang, callback) {

@@ -29,12 +29,12 @@ export class Code extends React.Component {
   render() {
     var code = this.props.children[0];
     return (
-      <div is="code">
+      <div is="code" className="codeblock">
         { code.split('\n').map((lineText, i) => {
           return (
             <div is="line" key={ i }>
               <div is="number">{ i + 1 }</div>
-              <div is="text">{ lineText.replace(' ', '\s') }</div>
+              <pre is="text">{ lineText }</pre>
             </div>
           );
         }) }
