@@ -4,7 +4,19 @@ import React from 'react';
 
 export class MARKDOWN extends React.Component {
   render() {
-    return <div>{ this.props.children }</div>;
+    var refs = [];
+
+    for (var refName in this.props.references) {
+      var ref = this.props.references[refName];
+      refs.push(<p key={ refName } id={ refName }>[{ refName }] { ref.href }</p>);
+    }
+
+    return (
+      <div>
+        { this.props.children }
+        { refs }
+      </div>
+    );
   }
 }
 

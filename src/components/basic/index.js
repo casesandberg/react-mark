@@ -11,8 +11,9 @@ import LI from './Li';
 import LIST from './List';
 import MARKDOWN from './Markdown';
 import P from './P';
+import REF from './Ref';
 import SPAN from './Span';
 import STRONG from './Strong';
 import UL from './Ul';
 
-export { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, SPAN, STRONG, UL };
+export { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL };
