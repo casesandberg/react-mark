@@ -1,9 +1,6 @@
 'use strict';
 
 export default `
-
-
-
 # React Mark
 
 > Render markdown with React components.
