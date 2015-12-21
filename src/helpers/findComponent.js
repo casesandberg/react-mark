@@ -2,149 +2,52 @@
 
 import React from 'react';
 
-class H1 extends React.Component {
-  render() {
-    return <h1>{ this.props.children }</h1>;
-  }
-}
+import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL } from '../components/basic/index';
 
-class H2 extends React.Component {
-  render() {
-    return <h2>{ this.props.children }</h2>;
-  }
-}
+export const findComponent = (name, args, children, replace) => {
+  let possible = {
+    'header': replace.header,
+    'para': replace.p,
+    'em': replace.em,
+    'strong': replace.strong,
+    'hr': replace.hr,
+    'numberlist': replace.ul,
+    'bulletlist': replace.ol,
+    'listitem': replace.li,
+    'link': replace.a,
+    'img': replace.img,
+    'blockquote': replace.blockquote,
+    'inlinecode': replace.code,
+    'code_block': replace.pre,
+    'link_ref': replace.ref,
+  }[name];
 
-class H3 extends React.Component {
-  render() {
-    return <h3>{ this.props.children }</h3>;
-  }
-}
+  let basic = {
+    'header': H,
+    'para': P,
+    'em': EM,
+    'strong': STRONG,
+    'hr': HR,
+    'numberlist': UL,
+    'bulletlist': UL,
+    'listitem': LI,
+    'link': A,
+    'img': IMG,
+    'blockquote': BLOCKQUOTE,
+    'inlinecode': INLINECODE,
+    'code_block': CODEBLOCK,
+    'link_ref': null,
+    'markdown': MARKDOWN,
+    'link_ref': REF,
+  }[name];
 
-class H4 extends React.Component {
-  render() {
-    return <h4>{ this.props.children }</h4>;
-  }
-}
-
-class H5 extends React.Component {
-  render() {
-    return <h5>{ this.props.children }</h5>;
-  }
-}
-
-class H6 extends React.Component {
-  render() {
-    return <h6>{ this.props.children }</h6>;
-  }
-}
-
-class P extends React.Component {
-  render() {
-    return <p>{ this.props.children }</p>;
-  }
-}
-
-class EM extends React.Component {
-  render() {
-    return <em>{ this.props.children }</em>;
-  }
-}
-
-class STRONG extends React.Component {
-  render() {
-    return <strong>{ this.props.children }</strong>;
-  }
-}
-
-class DEL extends React.Component {
-  render() {
-    return <del>{ this.props.children }</del>;
-  }
-}
-
-class UL extends React.Component {
-  render() {
-    return <ul>{ this.props.children }</ul>;
-  }
-}
-
-class LI extends React.Component {
-  render() {
-    return <li>{ this.props.children }</li>;
-  }
-}
-
-class LIST extends React.Component {
-  render() {
-    return (
-      <ul>
-        { this.props.children.map((child, i) => {
-          return <li>{ child }</li>;
-        }) }
-      </ul>);
-  }
-}
-
-class A extends React.Component {
-  render() {
-    return <a href={ this.props.href } title={ this.props.title }>{ this.props.children }</a>;
-  }
-}
-
-class IMG extends React.Component {
-  render() {
-    return <img src={ this.props.href } alt={ this.props.alt }>{ this.props.children }</img>;
-  }
-}
-
-class BLOCKQUOTE extends React.Component {
-  render() {
-    return <blockquote>{ this.props.children }</blockquote>;
-  }
-}
-
-class HR extends React.Component {
-  render() {
-    return <hr />;
-  }
-}
-
-export const findComponent = (name, args, children) => {
-  let el;
-  if (name === 'header') {
-    if (eval('H' + args.level)) {
-      el = eval('H' + args.level);
-    }
-  } else if (name === 'para') {
-    el = P;
-  } else if (name === 'em') {
-    el = EM;
-  } else if (name === 'strong') {
-    el = STRONG;
-  } else if (name === 'hr') {
-    el = HR;
-  } else if (name === 'numberlist') {
-    el = UL;
-  } else if (name === 'bulletlist') {
-    el = UL;
-  } else if (name === 'listitem') {
-    el = LI;
-  } else if (name === 'link') {
-    el = A;
-  } else if (name === 'img') {
-    el = IMG;
-  } else if (name === 'blockquote') {
-    el = BLOCKQUOTE;
-  } else {
-    name !== 'markdown' && console.log('COMPONENT DOESNT EXIST', name);
-    el = class Foo extends React.Component {
-      render() {
-        return <div>{ this.props.children }</div>;
-      }
-    };
+  if (!possible && !basic) {
+    console.log('COMPONENT DOESNT EXIST', name, args, children);
   }
 
-  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random() }), children);
+  const el = possible || basic || SPAN;
+
+  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random(), target: args.ref }), children);
 };
 
 export default findComponent;
