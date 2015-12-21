@@ -115,4 +115,14 @@ describe('Mark', () => {
     const codeBlock3 = ReactDOMServer.renderToStaticMarkup(<Mark text={'```\nimport React from \'react\';\nimport ReactCSS from \'reactcss\';\n```' } />);
     expect(codeBlock3).to.eql('<div><pre><code>import React from &#x27;react&#x27;;\nimport ReactCSS from &#x27;reactcss&#x27;;</code></pre></div>');
   });
+
+  // it('should parse link refs', () => {
+  //   const inlineCode = ReactDOMServer.renderToStaticMarkup(<Mark text={'[Facebook][fb]\n\n[fb]: http://facebook.com/'} />);
+  //   expect(inlineCode).to.eql('<div><p><a href="#fb">This Ref</a></p><p>[fb] http://facebook.com/</p></div>');
+  // });
+  // 
+  // it('should parse footnotes', () => {
+  //   const inlineCode = ReactDOMServer.renderToStaticMarkup(<Mark text={'I have more [^1] to say up here.\n\n[^1]: To say down here.'} />);
+  //   expect(inlineCode).to.eql('<div><p><a href="#fb">This Ref</a></p><p>[fb] http://facebook.com/</p></div>');
+  // });
 });
