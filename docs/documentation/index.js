@@ -85,16 +85,16 @@ class Component extends React.Component {
   render() {
     return (
       <Markdown replace={{ code: CodeWithNumbers }}>
-        \`\`\`
-        import React from 'react';
-        import Markdown from 'react-mark';
-        \`\`\`
+        // \`\`\`
+        // import React from 'react';
+        // import Markdown from 'react-mark';
+        // \`\`\`
       </Markdown>
     );
   }
 }
 ```
 
-We are using a custom code component on this page to make our code blocks more complex.
+To wrap markdown with a custom component, pass an object down via the \`replace\` prop with the key being the element you want to replace (in this case \`code\`) and the value being the component.
 
 `;
