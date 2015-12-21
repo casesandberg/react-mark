@@ -49,7 +49,7 @@ export class Page extends React.Component {
           margin: '0',
         },
         header: {
-          margin: '-30px -30px 30px -30px',
+          margin: '-20px -20px 30px -20px',
           display: 'flex',
         },
         count: {
