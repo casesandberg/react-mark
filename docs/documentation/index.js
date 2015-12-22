@@ -112,5 +112,5 @@ The Markdown to be rendered in React components.
 ### replace
 Type: \`obj\`
 
-Pass down custom components to replace tags. Tag names include: \`a\` \`blockquote\` \`code\` \`del\` \`em\` \`header\` \`hr\` \`img\` \`li\` \`list\` \`p\` \`pre\` \`ref\` \`span\` \`strong\` \`ul\`
+To wrap markdown with a custom component, pass an object down with the element name as the key and the component as the value. Tag names include: \`a\` \`blockquote\` \`code\` \`del\` \`em\` \`header\` \`hr\` \`img\` \`li\` \`list\` \`p\` \`pre\` \`ref\` \`span\` \`strong\` \`ul\`
 `;
