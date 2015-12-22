@@ -1,4 +1,5 @@
 # React Mark
+# [React Mark](http://casesandberg.github.io/react-mark/)
 
 Configurable Markdown Components in React.
 
@@ -26,7 +27,12 @@ class Component extends React.Component {
 
 class OtherComponent extends React.Component {
   render() {
-    return <Markdown># React Mark</Markdown>;
+    return (
+      <Markdown replace={{ pre: CodeWithNumbers }}>
+        import React from 'react';
+        import Markdown from 'react-mark';
+      </Markdown>
+    );
   }
 }
 ```
@@ -43,4 +49,4 @@ The Markdown to be rendered in React components.
 ### replace
 Type: `obj`
 
-To wrap markdown with a custom component, pass an object down with the element name as the key and the component as the value. Tag names include: `a` `blockquote` `code` `del` `em` `header` `hr` `img` `li` `list` `p` `pre` `ref` `span` `strong` `ul`. 
+To wrap markdown with a custom component, pass an object down with the element name as the key and the component as the value. Tag names include: `a` `blockquote` `code` `del` `em` `header` `hr` `img` `li` `list` `p` `pre` `ref` `span` `strong` `ul`.
