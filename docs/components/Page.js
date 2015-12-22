@@ -16,6 +16,9 @@ export class Page extends React.Component {
       copy: documentation,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.setBreakpoint = this.setBreakpoint.bind(this);
   }
 
   classes() {
@@ -49,6 +52,8 @@ export class Page extends React.Component {
           lineHeight: '24px',
           margin: '0',
           fontFamily: 'Georgia, Palatino, serif',
+          color: '#999',
+          transform: 'color 200ms linear',
         },
         header: {
           margin: '-20px -20px 30px -20px',
@@ -64,6 +69,29 @@ export class Page extends React.Component {
           fill: '#999',
         },
       },
+      'focus': {
+        textarea: {
+          color: '#333',
+        },
+      },
+      'mobile': {
+        left: {
+          display: 'none',
+        },
+        right: {
+          padding: '20px',
+        },
+        header: {
+          margin: '-10px -10px 0 -10px',
+        },
+      },
+    };
+  }
+
+  activations() {
+    return {
+      'focus': this.state.focus,
+      'mobile': this.state.mobile,
     };
   }
 
@@ -71,11 +99,40 @@ export class Page extends React.Component {
     this.setState({ copy: e.target.value });
   }
 
+  handleFocus() {
+    this.setState({ focus: true });
+  }
+
+  handleBlur() {
+    this.setState({ focus: false });
+  }
+
+  setBreakpoint() {
+    if (window.innerWidth < 700) {
+      if (!this.state.mobile) {
+        this.setState({ mobile: true });
+      }
+    } else {
+      if (this.state.mobile) {
+        this.setState({ mobile: false });
+      }
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.setBreakpoint);
+    this.setBreakpoint();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setBreakpoint);
+  }
+
   render() {
     return (
       <div is="page">
         <div is="left">
-          <textarea is="textarea" className="markdown-text" value={ this.state.copy } onChange={ this.handleChange } />
+          <textarea is="textarea" onFocus={ this.handleFocus } onBlur={ this.handleBlur } className="markdown-text" value={ this.state.copy } onChange={ this.handleChange } />
         </div>
         <div is="right">
           <div is="header">

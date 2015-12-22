@@ -17,13 +17,20 @@ export class Code extends React.Component {
           fontSize: '14px',
           borderRadius: '4px',
           margin: '20px 0',
-        },
-        line: {
           display: 'flex',
         },
-        number: {
+        numbers: {
           minWidth: '34px',
+        },
+        number: {
           color: '#ccc',
+          WebkitUserSelect: 'none',
+          MozUserSelect: 'none',
+          MsUserSelect: 'none',
+          userSelect: 'none',
+        },
+        text: {
+          height: '21px',
         },
       },
     };
@@ -33,14 +40,16 @@ export class Code extends React.Component {
     var code = this.props.children[0];
     return (
       <div is="code" className="codeblock">
-        { code.split('\n').map((lineText, i) => {
-          return (
-            <div is="line" key={ i }>
-              <div is="number">{ i + 1 }</div>
-              <pre is="text"><Highlight className="javascript">{ lineText }</Highlight></pre>
-            </div>
-          );
-        }) }
+        <div is="numbers">
+          { code.split('\n').map((lineText, i) => {
+            return <div is="number" key={ i }>{ i + 1 }</div>;
+          }) }
+        </div>
+        <div is="numbers">
+          { code.split('\n').map((lineText, i) => {
+            return <pre is="text" key={ i }><Highlight className="javascript">{ lineText ? lineText : '' }</Highlight></pre>;
+          }) }
+        </div>
       </div>
     );
   }
