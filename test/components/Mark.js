@@ -2,10 +2,7 @@
 
 import { React, ReactDOM, ReactDOMServer, TestUtils, expect } from '../helpers/config';
 
-import Mark from '../../src/components/Mark.js';
-
-// https://daringfireball.net/projects/markdown/syntax
-// https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+import Mark from '../../src/index';
 
 describe('Mark', () => {
   it('should parse a simple markdown string', () => {
@@ -20,9 +17,6 @@ describe('Mark', () => {
         return <Mark text="# header 1" />;
       }
     }
-
-    // const el = TestUtils.renderIntoDocument(<El />);
-    // expect(el.render().props).to.eql('foo');
 
     const h1 = ReactDOMServer.renderToStaticMarkup(<Mark text="# header 1"/>);
     expect(h1).to.eql('<div><h1>header 1</h1></div>');
@@ -120,7 +114,7 @@ describe('Mark', () => {
   //   const inlineCode = ReactDOMServer.renderToStaticMarkup(<Mark text={'[Facebook][fb]\n\n[fb]: http://facebook.com/'} />);
   //   expect(inlineCode).to.eql('<div><p><a href="#fb">This Ref</a></p><p>[fb] http://facebook.com/</p></div>');
   // });
-  // 
+  //
   // it('should parse footnotes', () => {
   //   const inlineCode = ReactDOMServer.renderToStaticMarkup(<Mark text={'I have more [^1] to say up here.\n\n[^1]: To say down here.'} />);
   //   expect(inlineCode).to.eql('<div><p><a href="#fb">This Ref</a></p><p>[fb] http://facebook.com/</p></div>');
