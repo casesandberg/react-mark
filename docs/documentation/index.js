@@ -3,11 +3,11 @@
 export default `
 # React Mark
 
-Markdown in React components.
+Configurable Markdown Components in React.
 
-> - Highly configurable! Wrap markdown with your own custom components.
-> - Compatabile with markdown stylesheets.
-> - Uses evilstreak's [markdown-js](https://github.com/evilstreak/markdown-js) for parsing.
+> - Wrap markdown with custom components.
+- Compatible with markdown stylesheets.
+- Uses evilstreak's [markdown-js](https://github.com/evilstreak/markdown-js) for parsing.
 
 ## Install
 
@@ -36,7 +36,7 @@ class OtherComponent extends React.Component {
 
 ## Default components
 
-By default \`react-mark\` outputs all the standard markdown elements listed below:
+By default, \`react-mark\` outputs all the standard markdown elements listed below:
 
 - Headers (<h1> ... <h6>)
 - Font Styles (<strong>, <em>, <del>)
@@ -51,7 +51,7 @@ You can take a look at the basic react components for each element [here](https:
 
 ## Custom components
 
-The real power of \`react-mark\` is being able to swap out any of the components above for your own custom components. Say we want to make our codeblocks have line numbers:
+\`react-mark\`'s real power is the ability to swap out any of the components above for custom components. Say you want codeblocks to have line numbers:
 
 \`\`\`js
 // NumberCode.js
@@ -78,7 +78,7 @@ export class NumberCode extends React.Component {
 export default NumberCode;
 \`\`\`
 
-And then we can use it in place of the default code \`pre\` component:
+Then, we can use it in place of the default code \`pre\` component:
 
 \`\`\`js
 import React from 'react';
@@ -100,6 +100,6 @@ export class Component extends React.Component {
 export default Component;
 \`\`\`
 
-To wrap markdown with a custom component, pass an object down via the \`replace\` prop with the key being the element you want to replace (in this case \`code\`) and the value being the component.
+To wrap markdown with a custom component, pass an object down via the \`replace\` prop with the element name as the key (in this case \`pre\`) and the component as the value.
 
 `;

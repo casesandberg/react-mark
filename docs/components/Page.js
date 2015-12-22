@@ -27,12 +27,12 @@ export class Page extends React.Component {
           Absolute: '0 0 0 0',
         },
         left: {
-          flex: 1,
+          flex: 2,
           position: 'relative',
           padding: '40px',
         },
         right: {
-          flex: 1,
+          flex: 3,
           padding: '40px',
           background: '#fff',
           boxShadow: '0 0 16px rgba(0,0,0,.14), 0 0 2px rgba(0,0,0,.14)',
@@ -48,6 +48,7 @@ export class Page extends React.Component {
           fontSize: '16px',
           lineHeight: '24px',
           margin: '0',
+          fontFamily: 'Georgia, Palatino, serif',
         },
         header: {
           margin: '-20px -20px 30px -20px',
