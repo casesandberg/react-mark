@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "jspm-server --port=4001 --no-browser"
+    "start": "jspm-server --port=4001 --no-browser",
+    "bundle": "jspm bundle docs/index.js  build.js"
   },
   "author": "",
   "license": "MIT",
