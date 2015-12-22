@@ -3,11 +3,11 @@
 export default `
 # React Mark
 
-> Render markdown with React components.
+Markdown in React components.
 
-- Highly configurable! Wrap markdown with your own custom components.
-- Compatabile with all CSS markdown stylesheet.
-- Uses evilstreak's [markdown-js](https://github.com/evilstreak/markdown-js) for parsing.
+> - Highly configurable! Wrap markdown with your own custom components.
+> - Compatabile with markdown stylesheets.
+> - Uses evilstreak's [markdown-js](https://github.com/evilstreak/markdown-js) for parsing.
 
 ## Install
 
@@ -62,7 +62,7 @@ export class NumberCode extends React.Component {
     var code = this.props.children[0];
     return (
       <div className="code">
-        { code.split('\n').map((lineText, i) => {
+        { code.split('\\n').map((lineText, i) => {
           return (
             <div is="line" key={ i }>
               <div is="number">{ i + 1 }</div>

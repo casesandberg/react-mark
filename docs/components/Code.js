@@ -14,6 +14,7 @@ export class Code extends React.Component {
           lineHeight: '1.5',
           fontSize: '14px',
           borderRadius: '4px',
+          margin: '20px 0',
         },
         line: {
           display: 'flex',
