@@ -23,7 +23,13 @@ import Markdown from 'react-mark';
 
 class Component extends React.Component {
   render() {
-    return <Markdown># ReactMark is cool</Markdown>;
+    return <Markdown text="# React Mark"/>;
+  }
+}
+
+class OtherComponent extends React.Component {
+  render() {
+    return <Markdown># React Mark</Markdown>;
   }
 }
 \`\`\`
@@ -41,54 +47,57 @@ By default \`react-mark\` outputs all the standard markdown elements listed belo
 - Hrs (<hr>)
 - Code (<code>, <pre>)
 
-You can take a look at the basic react components for each element [here](http://foo.bar/).
+You can take a look at the basic react components for each element [here](https://github.com/casesandberg/react-mark/tree/master/src/components/basic).
 
 ## Custom components
 
 The real power of \`react-mark\` is being able to swap out any of the components above for your own custom components. Say we want to make our codeblocks have line numbers:
 
 \`\`\`js
-// CodeWithNumbers.js
+// NumberCode.js
 import React from 'react';
 
-class CodeWithNumbers extends React.Component {
+export class NumberCode extends React.Component {
   render() {
+    var code = this.props.children[0];
     return (
       <div className="code">
-        { this.children.split('\n').map((lineText, i) => {
+        { code.split('\n').map((lineText, i) => {
           return (
-            <div className="code-line">
-              <div className="line-number">{ i + 1 }</div>
-              <div className="line-text">{ lineText }</div>
+            <div is="line" key={ i }>
+              <div is="number">{ i + 1 }</div>
+              <pre is="text">{ lineText }</pre>
             </div>
-          )
+          );
         }) }
       </div>
     );
   }
 }
+
+export default NumberCode;
 \`\`\`
 
-And then we can use it in place of the default code component:
+And then we can use it in place of the default code \`pre\` component:
 
 \`\`\`js
 import React from 'react';
 import Markdown from 'react-mark';
 
-import CodeWithNumbers from './CodeWithNumbers'
+import NumberCode from './NumberCode'
 
-class Component extends React.Component {
+export class Component extends React.Component {
   render() {
     return (
-      <Markdown replace={{ code: CodeWithNumbers }}>
-        // \`\`\`
-        // import React from 'react';
-        // import Markdown from 'react-mark';
-        // \`\`\`
+      <Markdown replace={{ pre: NumberCode }}>
+        import React from 'react';
+        import Markdown from 'react-mark';
       </Markdown>
     );
   }
 }
+
+export default Component;
 \`\`\`
 
 To wrap markdown with a custom component, pass an object down via the \`replace\` prop with the key being the element you want to replace (in this case \`code\`) and the value being the component.
