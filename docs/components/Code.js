@@ -3,6 +3,8 @@
 import React from 'react';
 import ReactCSS from 'reactcss';
 
+import Highlight from 'react-highlight';
+
 export class Code extends React.Component {
   classes() {
     return {
@@ -35,7 +37,7 @@ export class Code extends React.Component {
           return (
             <div is="line" key={ i }>
               <div is="number">{ i + 1 }</div>
-              <pre is="text">{ lineText }</pre>
+              <pre is="text"><Highlight className="javascript">{ lineText }</Highlight></pre>
             </div>
           );
         }) }

@@ -18,6 +18,7 @@
       "merge": "npm:merge@^1.2.0",
       "react": "npm:react@^0.14.3",
       "react-dom": "npm:react-dom@^0.14.3",
+      "react-highlight": "npm:react-highlight@^0.6.1",
       "reactcss": "github:casesandberg/reactcss@1.0.0",
       "underscore": "npm:underscore@^1.8.3"
     },
@@ -40,9 +41,11 @@
     "gulp-babel": "^6.1.1",
     "gulp-mocha": "^2.2.0",
     "gulp-util": "^3.0.7",
+    "highlight.js": "^8.9.1",
     "react": "^0.14.3",
     "react-addons-test-utils": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-highlight": "^0.6.1",
     "require-dir": "^0.3.0",
     "testdom": "^2.0.0"
   },

@@ -24,6 +24,7 @@ System.config({
     "merge": "npm:merge@1.2.0",
     "react": "npm:react@0.14.3",
     "react-dom": "npm:react-dom@0.14.3",
+    "react-highlight": "npm:react-highlight@0.6.1",
     "reactcss": "github:casesandberg/reactcss@1.0.0",
     "underscore": "npm:underscore@1.8.3",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -115,6 +116,10 @@ System.config({
       "ua-parser-js": "npm:ua-parser-js@0.7.10",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
     },
+    "npm:highlight.js@8.9.1": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
@@ -165,6 +170,13 @@ System.config({
     },
     "npm:react-dom@0.14.3": {
       "react": "npm:react@0.14.3"
+    },
+    "npm:react-highlight@0.6.1": {
+      "highlight.js": "npm:highlight.js@8.9.1",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react": "npm:react@0.14.3",
+      "react-dom": "npm:react-dom@0.14.3"
     },
     "npm:react@0.14.3": {
       "envify": "npm:envify@3.4.0",
