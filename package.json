@@ -1,15 +1,29 @@
 {
   "name": "react-mark",
   "version": "0.0.1",
-  "description": "",
+  "description": "Configurable Markdown Components in React",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "jspm-server --port=4001 --no-browser",
     "bundle": "jspm bundle docs/index.js  build.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casesandberg/react-mark.git"
+  },
+  "author": "case <case@casesandberg.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/casesandberg/react-mark/issues"
+  },
+  "homepage": "http://casesandberg.github.io/react-mark/",
+  "keywords": [
+    "react",
+    "markdown",
+    "react markdown" ,
+    "react-tool",
+  ],
   "jspm": {
     "dependencies": {
       "casesandberg/reactcss": "github:casesandberg/reactcss@1.0.0",
