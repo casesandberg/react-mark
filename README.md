@@ -1,4 +1,3 @@
-# React Mark
 # [React Mark](http://casesandberg.github.io/react-mark/)
 
 Configurable Markdown Components in React.
