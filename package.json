@@ -22,7 +22,8 @@
     "react",
     "markdown",
     "react markdown" ,
-    "react-tool"
+    "react-tool",
+    "react-component"
   ],
   "jspm": {
     "dependencies": {
