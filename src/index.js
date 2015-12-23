@@ -1,1 +1,3 @@
-export default 'hello react-mark';
+import Mark from './components/Mark';
+
+export default Mark;
