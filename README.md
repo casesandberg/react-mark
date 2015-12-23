@@ -2,9 +2,9 @@
 
 Configurable Markdown Components in React. Make your own components to do custom things like to:
 
-> - Add line numbers and syntax highlighting to <pre> tags.
-- Transform absolute and relative link paths on <a> tags.
-- Add anchor links to all <h1> and <h2> tags.
+> - Add line numbers and syntax highlighting to `pre` tags.
+- Transform absolute and relative link paths on `a` tags.
+- Add anchor links to all `h1` and `h2` tags.
 
 ## Install
 
