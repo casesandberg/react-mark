@@ -21,8 +21,9 @@
   "keywords": [
     "react",
     "markdown",
-    "react markdown",
-    "react-tool"
+    "react markdown" ,
+    "react-tool",
+    "react-component"
   ],
   "jspm": {
     "dependencies": {

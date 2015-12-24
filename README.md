@@ -1,10 +1,10 @@
 # [React Mark](http://casesandberg.github.io/react-mark/)
 
-Configurable Markdown Components in React.
+Configurable Markdown Components in React. Make your own components to do custom things like to:
 
-> - Wrap markdown with custom components.
-- Compatible with markdown stylesheets.
-- Uses evilstreak's [markdown-js](https://github.com/evilstreak/markdown-js) for parsing.
+> - Add line numbers and syntax highlighting to `pre` tags.
+- Transform absolute and relative link paths on `a` tags.
+- Add anchor links to all `h1` and `h2` tags.
 
 ## Install
 
