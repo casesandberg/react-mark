@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "jspm-server --port=4001 --no-browser",
+    "start": "node server",
     "bundle": "jspm bundle docs/index.js  build.js"
   },
   "repository": {
@@ -21,11 +21,12 @@
   "keywords": [
     "react",
     "markdown",
-    "react markdown" ,
+    "react markdown",
     "react-tool"
   ],
   "jspm": {
     "dependencies": {
+      "capaj/systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.1",
       "casesandberg/reactcss": "github:casesandberg/reactcss@1.0.0",
       "classnames": "npm:classnames@^2.2.1",
       "lodash": "npm:lodash@^3.10.1",
@@ -51,12 +52,14 @@
     "babel-register": "^6.3.13",
     "chai": "^3.4.1",
     "chai-spies": "^0.7.1",
+    "chokidar-socket-emitter": "^0.3.0",
     "enzyme": "^1.1.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-mocha": "^2.2.0",
     "gulp-util": "^3.0.7",
     "highlight.js": "^8.9.1",
+    "http-server": "^0.8.5",
     "react": "^0.14.3",
     "react-addons-test-utils": "^0.14.3",
     "react-dom": "^0.14.3",

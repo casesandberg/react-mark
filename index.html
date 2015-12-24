@@ -21,7 +21,18 @@
     <script type="text/javascript" src="config.js"></script>
     <script type="text/javascript" src="build.js"></script>
     <script type="text/javascript">
-      System.import('docs/index.js')
+      var readyForMainLoad
+      if (location.origin.match(/localhost/)) {
+        System.trace = true
+        readyForMainLoad = System.import('capaj/systemjs-hot-reloader').then(function(HotReloader){
+          hr = new HotReloader.default('http://localhost:9080');
+        })
+      }
+      Promise.resolve(readyForMainLoad).then(() => {
+        System.import('docs/index.js').then(function () {
+          console.log('ran at ', new Date())
+        })
+      });
     </script>
   </body>
 </html>
