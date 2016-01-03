@@ -1,6 +1,6 @@
 {
   "name": "react-mark",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Configurable Markdown Components in React",
   "main": "lib/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "keywords": [
     "react",
     "markdown",
-    "react markdown" ,
+    "react markdown",
     "react-tool",
     "react-component"
   ],
