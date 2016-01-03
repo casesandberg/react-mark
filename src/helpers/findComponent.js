@@ -4,7 +4,7 @@ import React from 'react';
 
 import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL } from '../components/basic/index';
 
-export const findComponent = (name, args, children, replace) => {
+export const findComponent = (name, args, children, replace = {}) => {
   let possible = {
     'header': replace.header,
     'para': replace.p,
