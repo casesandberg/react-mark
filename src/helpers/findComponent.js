@@ -36,7 +36,6 @@ export const findComponent = (name, args, children, replace = {}) => {
     'blockquote': BLOCKQUOTE,
     'inlinecode': INLINECODE,
     'code_block': CODEBLOCK,
-    'link_ref': null,
     'markdown': MARKDOWN,
     'link_ref': REF,
   }[name];
