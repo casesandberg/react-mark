@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactCSS from 'reactcss';
+import { generate } from 'shortid';
 
 import Highlight from 'react-highlight';
 
@@ -42,12 +43,12 @@ export class Code extends React.Component {
       <div is="code" className="codeblock">
         <div is="numbers">
           { code.split('\n').map((lineText, i) => {
-            return <div is="number" key={ i }>{ i + 1 }</div>;
+            return <div is="number" key={ generate() }>{ i + 1 }</div>;
           }) }
         </div>
         <div is="numbers">
           { code.split('\n').map((lineText, i) => {
-            return <pre is="text" key={ i }><Highlight className="javascript">{ lineText ? lineText : '' }</Highlight></pre>;
+            return <pre is="text" key={ generate() }><Highlight className="javascript">{ lineText ? lineText : '' }</Highlight></pre>;
           }) }
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import { generate } from 'shortid';
 
 export class MARKDOWN extends React.Component {
   render() {
@@ -8,7 +9,7 @@ export class MARKDOWN extends React.Component {
 
     for (var refName in this.props.references) {
       var ref = this.props.references[refName];
-      refs.push(<p key={ refName } id={ refName }>[{ refName }] { ref.href }</p>);
+      refs.push(<p key={ generate() } id={ refName }>[{ refName }] { ref.href }</p>);
     }
 
     return (
