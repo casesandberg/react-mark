@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL } from '../components/basic/index';
+import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL, OL } from '../components/basic/index';
 
 export const findComponent = (name, args, children, replace = {}) => {
   let possible = {
@@ -11,8 +11,8 @@ export const findComponent = (name, args, children, replace = {}) => {
     'em': replace.em,
     'strong': replace.strong,
     'hr': replace.hr,
-    'numberlist': replace.ul,
-    'bulletlist': replace.ol,
+    'numberlist': replace.ol,
+    'bulletlist': replace.ul,
     'listitem': replace.li,
     'link': replace.a,
     'img': replace.img,
@@ -28,7 +28,7 @@ export const findComponent = (name, args, children, replace = {}) => {
     'em': EM,
     'strong': STRONG,
     'hr': HR,
-    'numberlist': UL,
+    'numberlist': OL,
     'bulletlist': UL,
     'listitem': LI,
     'link': A,

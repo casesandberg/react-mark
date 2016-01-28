@@ -60,7 +60,7 @@ describe('Mark', () => {
   it('should parse lists', () => {
     const ol = '1. Foo\n2. Bar\n3. Baz';
     const list = ReactDOMServer.renderToStaticMarkup(<Mark text={ ol } />);
-    expect(list).to.eql('<div><ul><li>Foo</li><li>Bar</li><li>Baz</li></ul></div>');
+    expect(list).to.eql('<div><ol><li>Foo</li><li>Bar</li><li>Baz</li></ol></div>');
 
     const ul = '* Foo\n* Bar\n* Baz';
     const list2 = ReactDOMServer.renderToStaticMarkup(<Mark text={ ul } />);

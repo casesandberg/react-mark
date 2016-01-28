@@ -15,5 +15,6 @@ import REF from './Ref';
 import SPAN from './Span';
 import STRONG from './Strong';
 import UL from './Ul';
+import OL from './Ol';
 
-export { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL };
+export { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL, OL };
