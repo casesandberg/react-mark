@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class MARKDOWN extends React.Component {
   render() {
-    var refs = [];
+    var refs = []
 
     for (var refName in this.props.references) {
-      var ref = this.props.references[refName];
-      refs.push(<p key={ refName } id={ refName }>[{ refName }] { ref.href }</p>);
+      var ref = this.props.references[refName]
+      refs.push(<p key={ refName } id={ refName }>[{ refName }] { ref.href }</p>)
     }
 
     return (
@@ -16,8 +16,8 @@ export class MARKDOWN extends React.Component {
         { this.props.children }
         { refs }
       </div>
-    );
+    )
   }
 }
 
-export default MARKDOWN;
+export default MARKDOWN

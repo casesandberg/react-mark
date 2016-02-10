@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-import { React, ReactDOM, ReactDOMServer, TestUtils, expect } from './config';
+import { React, ReactDOM, ReactDOMServer, TestUtils, expect } from './config'
 
-import componentLoop from '../../src/helpers/componentLoop.js';
+import componentLoop from '../../src/helpers/componentLoop.js'
 
 // describe('Component Loop', () => {
 //   it('should parse a simple markdown string', () => {

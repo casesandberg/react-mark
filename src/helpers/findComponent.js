@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
-import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL } from '../components/basic/index';
+import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL } from '../components/basic/index'
 
 export const findComponent = (name, args, children, replace) => {
   let possible = {
@@ -20,7 +20,7 @@ export const findComponent = (name, args, children, replace) => {
     'inlinecode': replace.code,
     'code_block': replace.pre,
     'link_ref': replace.ref,
-  }[name];
+  }[name]
 
   let basic = {
     'header': H,
@@ -39,15 +39,15 @@ export const findComponent = (name, args, children, replace) => {
     'link_ref': null,
     'markdown': MARKDOWN,
     'link_ref': REF,
-  }[name];
+  }[name]
 
   if (!possible && !basic) {
-    console.log('COMPONENT DOESNT EXIST', name, args, children);
+    console.log('COMPONENT DOESNT EXIST', name, args, children)
   }
 
-  const el = possible || basic || SPAN;
+  const el = possible || basic || SPAN
 
-  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random(), target: args.ref }), children);
-};
+  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random(), target: args.ref }), children)
+}
 
-export default findComponent;
+export default findComponent

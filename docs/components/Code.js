@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import Highlight from 'react-highlight';
+import Highlight from 'react-highlight'
 
 export class Code extends React.Component {
   classes() {
@@ -33,26 +33,26 @@ export class Code extends React.Component {
           height: '21px',
         },
       },
-    };
+    }
   }
 
   render() {
-    var code = this.props.children[0];
+    var code = this.props.children[0]
     return (
       <div is="code" className="codeblock">
         <div is="numbers">
           { code.split('\n').map((lineText, i) => {
-            return <div is="number" key={ i }>{ i + 1 }</div>;
+            return <div is="number" key={ i }>{ i + 1 }</div>
           }) }
         </div>
         <div is="numbers">
           { code.split('\n').map((lineText, i) => {
-            return <pre is="text" key={ i }><Highlight className="javascript">{ lineText ? lineText : '' }</Highlight></pre>;
+            return <pre is="text" key={ i }><Highlight className="javascript">{ lineText ? lineText : '' }</Highlight></pre>
           }) }
         </div>
       </div>
-    );
+    )
   }
-};
+}
 
-export default ReactCSS(Code);
+export default ReactCSS(Code)

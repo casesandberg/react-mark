@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-import { React, ReactDOM, ReactDOMServer, TestUtils, expect } from './config';
+import { React, ReactDOM, ReactDOMServer, TestUtils, expect } from './config'
 
-import findComponent from '../../src/helpers/findComponent.js';
+import findComponent from '../../src/helpers/findComponent.js'
 
 // (name, args, children, replace)
 
