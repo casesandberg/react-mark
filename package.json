@@ -63,7 +63,7 @@
     "http-server": "^0.9.0",
     "react": "^0.14.3",
     "react-addons-test-utils": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react-dom": "^15.0.2",
     "react-highlight": "^0.7.0",
     "require-dir": "^0.3.0",
     "shortid": "^2.2.4",
