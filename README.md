@@ -25,9 +25,16 @@ class Component extends React.Component {
 }
 
 class OtherComponent extends React.Component {
+  codeThatTransforms(child, index) {
+    if (child.indexOf('transform me') > -1) {
+      return <mark key={index}>{child}</mark>;
+    }
+    return child;
+  }
+
   render() {
     return (
-      <Markdown replace={{ pre: CodeWithNumbers }}>
+      <Markdown replace={{ pre: CodeWithNumbers }} transform={this.codeThatTransforms}>
         import React from 'react';
         import Markdown from 'react-mark';
       </Markdown>
@@ -49,3 +56,8 @@ The Markdown to be rendered in React components.
 Type: `obj`
 
 To wrap markdown with a custom component, pass an object down with the element name as the key and the component as the value. Tag names include: `a` `blockquote` `code` `del` `em` `header` `hr` `img` `li` `list` `p` `pre` `ref` `span` `strong` `ul`.
+
+### transform
+Type: `function`
+
+Transforms children with custom component. Transformed child is wrapped with a `span`.

@@ -4,7 +4,7 @@ import React from 'react'
 import _ from 'underscore'
 import findComponent from './findComponent'
 
-export const componentLoop = (elements, replace) => {
+export const componentLoop = (elements, replace, transform) => {
   const children = []
   let name
   let args = {}
@@ -17,7 +17,7 @@ export const componentLoop = (elements, replace) => {
       } else {
 
         if (_.isArray(element)) {
-          children.push(componentLoop(element, replace))
+          children.push(componentLoop(element, replace, transform))
         } else {
           children.push(element)
         }
@@ -25,7 +25,7 @@ export const componentLoop = (elements, replace) => {
     }
   })
 
-  return findComponent(name, args, children, replace)
+  return findComponent(name, args, children, replace, transform)
 }
 
 export default componentLoop

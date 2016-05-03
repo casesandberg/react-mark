@@ -10,12 +10,14 @@ export class Mark extends React.Component {
     let input = this.props.text || this.props.children || []
     let blocked = transformCodeBlocks(input)
     let elements = markdown.parse(blocked)
-    return componentLoop(elements, this.props.replace)
+
+    return componentLoop(elements, this.props.replace, this.props.transform)
   }
 }
 
 Mark.defaultProps = {
   replace: {},
+  transform: {},
 }
 
 export default Mark

@@ -110,6 +110,25 @@ describe('Mark', () => {
     expect(codeBlock3).to.eql('<div><pre><code>import React from &#x27;react&#x27;\nimport ReactCSS from &#x27;reactcss&#x27;</code></pre></div>')
   })
 
+  it('should transform child', () => {
+    class TransformedComponent extends React.Component {
+      render() {
+        return <div><mark>{this.props.text}</mark></div>
+      }
+    }
+
+    const childTransform = (child, index) => <TransformedComponent key={index} text={child} />
+    const transformedChild = ReactDOMServer.renderToStaticMarkup(<Mark text="foo bar" transform={childTransform} />)
+    expect(transformedChild).to.eql('<div><span><div><mark>foo bar</mark></div></span></div>')
+
+    const transformedChild1 = ReactDOMServer.renderToStaticMarkup(<Mark text="> Some Amazing Takeaway" transform={childTransform} />)
+    expect(transformedChild1).to.eql('<div><blockquote><span><div><mark>Some Amazing Takeaway</mark></div></span></blockquote></div>')
+
+    const transformedChild2 = ReactDOMServer.renderToStaticMarkup(<Mark text="Just a test<br>" transform={childTransform} />)
+    expect(transformedChild2).to.eql('<div><span><div><mark>Just a test&lt;br&gt;</mark></div></span></div>')
+
+  })
+
   // it('should parse link refs', () => {
   //   const inlineCode = ReactDOMServer.renderToStaticMarkup(<Mark text={'[Facebook][fb]\n\n[fb]: http://facebook.com/'} />)
   //   expect(inlineCode).to.eql('<div><p><a href="#fb">This Ref</a></p><p>[fb] http://facebook.com/</p></div>')
