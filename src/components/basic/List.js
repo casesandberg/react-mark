@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class LIST extends React.Component {
   render() {
     return (
       <ul>
         { this.props.children.map((child, i) => {
-          return <li>{ child }</li>;
+          return <li>{ child }</li>
         }) }
-      </ul>);
+      </ul>)
   }
 }
 
-export default LIST;
+export default LIST

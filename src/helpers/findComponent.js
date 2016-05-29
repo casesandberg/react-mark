@@ -1,10 +1,12 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
-import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL, OL } from '../components/basic/index';
+import { A, BLOCKQUOTE, CODEBLOCK, DEL, EM, H, HR, IMG, INLINECODE, LI, LIST, MARKDOWN, P, REF, SPAN, STRONG, UL, OL } from '../components/basic/index'
 
-export const findComponent = (name, args, children, replace = {}) => {
+export const findComponent = (name, args, children, replace = {}, transform) => {
+  let transformed = false
+
   let possible = {
     'header': replace.header,
     'para': replace.p,
@@ -20,7 +22,7 @@ export const findComponent = (name, args, children, replace = {}) => {
     'inlinecode': replace.code,
     'code_block': replace.pre,
     'link_ref': replace.ref,
-  }[name];
+  }[name]
 
   let basic = {
     'header': H,
@@ -38,15 +40,26 @@ export const findComponent = (name, args, children, replace = {}) => {
     'code_block': CODEBLOCK,
     'markdown': MARKDOWN,
     'link_ref': REF,
-  }[name];
+  }[name]
 
-  if (!possible && !basic) {
-    console.log('COMPONENT DOESNT EXIST', name, args, children);
+  if (typeof transform === 'function') {
+    children.forEach((child, index) => {
+      if (typeof child === 'string') {
+        let cached = children[index]
+        children[index] = transform(child, index)
+        if (cached !== children[index]) {
+          transformed = true
+        }
+      }
+    })
   }
 
-  const el = possible || basic || SPAN;
+  if (!possible && !basic) {
+    console.log('COMPONENT DOESNT EXIST', name, args, children)
+  }
 
-  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random(), target: args.ref }), children);
-};
+  const el = transformed ? SPAN : possible || basic || SPAN
+  return React.createElement(el, Object.assign({}, args, { key: 'r' + Math.random(), target: args.ref }), children)
+}
 
-export default findComponent;
+export default findComponent
