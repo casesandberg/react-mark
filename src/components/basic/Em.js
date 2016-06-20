@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class EM extends React.Component {
   render() {
-    return <em>{ this.props.children }</em>;
+    return <em>{ this.props.children }</em>
   }
 }
 
-export default EM;
+export default EM
