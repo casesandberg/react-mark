@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import Code from './Code';
-import InlineCode from './InlineCode';
-import Markdown from '../../src/components/Mark';
+import Code from './Code'
+import InlineCode from './InlineCode'
+import Markdown from '../../src/components/Mark'
 
-import documentation from '../documentation/index';
+import documentation from '../documentation/index'
 
 export class Page extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       copy: documentation,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.setBreakpoint = this.setBreakpoint.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleFocus = this.handleFocus.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
+    this.setBreakpoint = this.setBreakpoint.bind(this)
   }
 
   classes() {
@@ -85,47 +85,47 @@ export class Page extends React.Component {
           margin: '-10px -10px 0 -10px',
         },
       },
-    };
+    }
   }
 
   activations() {
     return {
       'focus': this.state.focus,
       'mobile': this.state.mobile,
-    };
+    }
   }
 
   handleChange(e) {
-    this.setState({ copy: e.target.value });
+    this.setState({ copy: e.target.value })
   }
 
   handleFocus() {
-    this.setState({ focus: true });
+    this.setState({ focus: true })
   }
 
   handleBlur() {
-    this.setState({ focus: false });
+    this.setState({ focus: false })
   }
 
   setBreakpoint() {
     if (window.innerWidth < 700) {
       if (!this.state.mobile) {
-        this.setState({ mobile: true });
+        this.setState({ mobile: true })
       }
     } else {
       if (this.state.mobile) {
-        this.setState({ mobile: false });
+        this.setState({ mobile: false })
       }
     }
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.setBreakpoint);
-    this.setBreakpoint();
+    window.addEventListener('resize', this.setBreakpoint)
+    this.setBreakpoint()
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.setBreakpoint);
+    window.removeEventListener('resize', this.setBreakpoint)
   }
 
   render() {
@@ -148,8 +148,8 @@ export class Page extends React.Component {
           <Markdown text={ this.state.copy } replace={{ pre: Code, code: InlineCode }} />
         </div>
       </div>
-    );
+    )
   }
-};
+}
 
-export default ReactCSS(Page);
+export default ReactCSS(Page)

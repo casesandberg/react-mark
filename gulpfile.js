@@ -1,2 +1,2 @@
-require('babel-register');
-require('require-dir')('./gulp/tasks');
+require('babel-register')
+require('require-dir')('./gulp/tasks')
