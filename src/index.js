@@ -1,3 +1,3 @@
-import Mark from './components/Mark';
+import Mark from './components/Mark'
 
-export default Mark;
+export default Mark
