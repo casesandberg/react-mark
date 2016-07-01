@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class HR extends React.Component {
   render() {
-    return <hr />;
+    return <hr />
   }
 }
 
-export default HR;
+export default HR
