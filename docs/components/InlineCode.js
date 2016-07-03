@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class InlineCode extends React.Component {
   classes() {
@@ -16,12 +16,12 @@ export class InlineCode extends React.Component {
           padding: '2px 4px',
         },
       },
-    };
+    }
   }
 
   render() {
-    return <span is="code">{ this.props.children }</span>;
+    return <span is="code">{ this.props.children }</span>
   }
-};
+}
 
-export default ReactCSS(InlineCode);
+export default ReactCSS(InlineCode)
