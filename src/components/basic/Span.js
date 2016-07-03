@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class SPAN extends React.Component {
   render() {
-    return <span>{ this.props.children }</span>;
+    return <span>{ this.props.children }</span>
   }
 }
 
-export default SPAN;
+export default SPAN

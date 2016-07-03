@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class BLOCKQUOTE extends React.Component {
   render() {
-    return <blockquote>{ this.props.children }</blockquote>;
+    return <blockquote>{ this.props.children }</blockquote>
   }
 }
 
-export default BLOCKQUOTE;
+export default BLOCKQUOTE
