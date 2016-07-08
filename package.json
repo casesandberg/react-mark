@@ -54,7 +54,7 @@
     "chai": "^3.4.1",
     "chai-spies": "^0.7.1",
     "chokidar-socket-emitter": "^0.3.0",
-    "enzyme": "^1.1.0",
+    "enzyme": "^2.4.1",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-mocha": "^2.2.0",
