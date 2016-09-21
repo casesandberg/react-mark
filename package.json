@@ -59,7 +59,7 @@
     "gulp-babel": "^6.1.1",
     "gulp-mocha": "^2.2.0",
     "gulp-util": "^3.0.7",
-    "highlight.js": "^8.9.1",
+    "highlight.js": "^9.7.0",
     "http-server": "^0.8.5",
     "react": "^0.14.3",
     "react-addons-test-utils": "^0.14.3",
